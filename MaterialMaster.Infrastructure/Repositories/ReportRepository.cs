@@ -1,5 +1,5 @@
-﻿using Material.Domain.Contracts;
-using Material.Infrastructure.Contexts;
+﻿using MaterialMaster.Domain.Contracts;
+using MaterialMaster.Infrastructure.Contexts;
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Material.Infrastructure.Repositories
+namespace MaterialMaster.Infrastructure.Repositories
 {
     public class ReportRepository: IReportRepository
     {

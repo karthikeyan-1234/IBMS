@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Material.Domain\Material.Domain.csproj" />
+    <ProjectReference Include="..\MaterialMaster.Domain\MaterialMaster.Domain.csproj" />
   </ItemGroup>
 
 </Project>

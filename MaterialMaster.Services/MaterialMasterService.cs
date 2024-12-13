@@ -1,26 +1,27 @@
-﻿using Material.Domain.Contracts;
-using Material.Services.Contracts;
+﻿using MaterialMaster.Domain.Contracts;
+using MaterialMaster.Services.Contracts;
+using MaterialMaster.Domain.Models;
 
-namespace Material.Services
+namespace MaterialMaster.Services
 {
-    public class MaterialService : IMaterialService
+    public class MaterialMasterService : IMaterialMasterService
     {
         private readonly IMaterialRepository _materialRepository;
         private readonly IReportRepository _reportRepository;
 
-        public MaterialService(IMaterialRepository materialRepository,IReportRepository reportRepository)
+        public MaterialMasterService(IMaterialRepository materialRepository,IReportRepository reportRepository)
         {
             _materialRepository = materialRepository;
             _reportRepository = reportRepository;
         }
 
-        public async Task<Material.Domain.Models.Material?> GetMaterialByNameAsync(string name)
+        public async Task<Material?> GetMaterialByNameAsync(string name)
         {
             return await _materialRepository.GetMaterialByNameAsync(name);
         }
 
         //Add new material
-        public async Task AddMaterialAsync(Material.Domain.Models.Material material)
+        public async Task AddMaterialAsync(Material material)
         {
             await _materialRepository.AddAsync(material);
         }

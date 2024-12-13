@@ -1,4 +1,4 @@
-﻿namespace Material.Domain.Models
+﻿namespace MaterialMaster.Domain.Models
 {
     public class MaterialCategory
     {

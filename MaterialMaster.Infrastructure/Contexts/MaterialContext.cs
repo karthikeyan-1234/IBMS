@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MaterialMaster.Domain.Models;
+
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 using System;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Material.Infrastructure.Contexts
+namespace MaterialMaster.Infrastructure.Contexts
 {
     public class MaterialContext: DbContext
     {
@@ -21,13 +23,13 @@ namespace Material.Infrastructure.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(configuration.GetConnectionString("ServerConn"));
 
-        public DbSet<Material.Domain.Models.Material> Materials { get; set; }
-        public DbSet<Material.Domain.Models.MaterialCategory> MaterialCategories { get; set; }
+        public DbSet<Material> Materials { get; set; }
+        public DbSet<MaterialCategory> MaterialCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Material.Domain.Models.Material>().ToTable("Materials");
-            modelBuilder.Entity<Material.Domain.Models.MaterialCategory>().ToTable("MaterialCategories");
+            modelBuilder.Entity<Material>().ToTable("Materials");
+            modelBuilder.Entity<MaterialCategory>().ToTable("MaterialCategories");
         }
     }
 }

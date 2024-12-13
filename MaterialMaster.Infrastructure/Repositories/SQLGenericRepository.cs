@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Material.Domain.Contracts;
+using MaterialMaster.Domain.Contracts;
 
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Material.Infrastructure.Repositories
+namespace MaterialMaster.Infrastructure.Repositories
 {
     public class SQLGenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class

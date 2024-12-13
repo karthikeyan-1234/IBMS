@@ -1,6 +1,7 @@
-﻿using Material.Services.Contracts;
+﻿using MaterialMaster.Services.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MaterialMaster.Domain.Models;
 
 namespace MaterialAPI.Controllers
 {
@@ -8,16 +9,16 @@ namespace MaterialAPI.Controllers
     [ApiController]
     public class MaterialController : ControllerBase
     {
-        IMaterialService _materialService;
+        IMaterialMasterService _materialService;
 
-        public MaterialController(IMaterialService materialService)
+        public MaterialController(IMaterialMasterService materialService)
         {
             _materialService = materialService;
         }
 
         //Get GetMaterialByNameAsync
         [HttpGet("{name}")]
-        public async Task<ActionResult<Material.Domain.Models.Material>> GetMaterialByNameAsync(string name)
+        public async Task<ActionResult<Material>> GetMaterialByNameAsync(string name)
         {
             var material = await _materialService.GetMaterialByNameAsync(name);
             if (material == null)
@@ -29,7 +30,7 @@ namespace MaterialAPI.Controllers
 
         //Add new material
         [HttpPost("AddMaterialAsync")]
-        public async Task<ActionResult<Material.Domain.Models.Material>> AddMaterialAsync(Material.Domain.Models.Material material)
+        public async Task<ActionResult<Material>> AddMaterialAsync(Material material)
         {
             await _materialService.AddMaterialAsync(material);
             return Ok();

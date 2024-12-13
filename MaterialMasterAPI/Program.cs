@@ -1,8 +1,8 @@
-using Material.Domain.Contracts;
-using Material.Infrastructure.Contexts;
-using Material.Infrastructure.Repositories;
-using Material.Services;
-using Material.Services.Contracts;
+using MaterialMaster.Domain.Contracts;
+using MaterialMaster.Infrastructure.Contexts;
+using MaterialMaster.Infrastructure.Repositories;
+using MaterialMaster.Services;
+using MaterialMaster.Services.Contracts;
 using MaterialAPI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MaterialContext>();
 
-builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IMaterialMasterService, MaterialMasterService>();
 builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(SQLGenericRepository<>));

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Material.Domain.Models;
-using Material.Infrastructure.Contexts;
-using Material.Domain.Contracts;
+using MaterialMaster.Domain.Models;
+using MaterialMaster.Infrastructure.Contexts;
+using MaterialMaster.Domain.Contracts;
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Material.Infrastructure.Repositories
+namespace MaterialMaster.Infrastructure.Repositories
 {
     public class MaterialRepository : SQLGenericRepository<Domain.Models.Material>, IMaterialRepository
     {

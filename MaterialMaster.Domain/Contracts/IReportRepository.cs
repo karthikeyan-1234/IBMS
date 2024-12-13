@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Material.Domain.Contracts
+namespace MaterialMaster.Domain.Contracts
 {
     public interface IReportRepository
     {
