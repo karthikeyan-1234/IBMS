@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MaterialMaster.Domain.Contracts
 {
-    public interface IMaterialRepository: IGenericRepository<Material>
+    public interface IMaterialCategoryRepository: IGenericRepository<MaterialCategory>
     {
-        Task<Material?> GetMaterialByNameAsync(string name);
+        Task<MaterialCategory?> GetMaterialCategoryByNameAsync(string name);
     }
 }

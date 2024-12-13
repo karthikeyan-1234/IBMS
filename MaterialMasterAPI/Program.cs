@@ -4,6 +4,7 @@ using MaterialMaster.Infrastructure.Repositories;
 using MaterialMaster.Services;
 using MaterialMaster.Services.Contracts;
 using MaterialAPI;
+using MaterialMasterAPI.Dependencies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Resolve dependencies
-
-builder.Services.AddDbContext<MaterialContext>();
-
-builder.Services.AddScoped<IMaterialMasterService, MaterialMasterService>();
-builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
-builder.Services.AddScoped<IReportRepository, ReportRepository>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(SQLGenericRepository<>));
+builder.Services.AddBusinessDependencies();
 
 var app = builder.Build();
 
