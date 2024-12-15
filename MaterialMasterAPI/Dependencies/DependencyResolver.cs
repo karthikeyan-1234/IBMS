@@ -1,4 +1,7 @@
-﻿using MaterialMaster.Domain.Contracts;
+﻿using Common.Domain;
+using Common.Infrastructure;
+
+using MaterialMaster.Domain.Contracts;
 using MaterialMaster.Infrastructure.Contexts;
 using MaterialMaster.Infrastructure.Repositories;
 using MaterialMaster.Services;
@@ -15,6 +18,7 @@ namespace MaterialMasterAPI.Dependencies
             collection.AddScoped<IMaterialRepository, MaterialRepository>();
             collection.AddScoped<IMaterialCategoryRepository, MaterialCategoryRepository>();
             collection.AddScoped<IReportRepository, ReportRepository>();
+            collection.AddScoped<INotificationService, NotificationService>();
             collection.AddScoped(typeof(IGenericRepository<>), typeof(SQLGenericRepository<>));
         }
     }

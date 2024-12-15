@@ -8,6 +8,7 @@ using MaterialMaster.Infrastructure.Contexts;
 using MaterialMaster.Domain.Contracts;
 
 using Microsoft.EntityFrameworkCore;
+using Common.Infrastructure;
 
 namespace MaterialMaster.Infrastructure.Repositories
 {

@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\InventoryProject.Domain\InventoryProject.Domain.csproj" />
+    <ProjectReference Include="..\InventoryProject.Infrastructure\InventoryProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\InventoryProject.Services\InventoryProject.Services.csproj" />
+    <ProjectReference Include="..\MaterialMaster.Domain\MaterialMaster.Domain.csproj" />
+    <ProjectReference Include="..\MaterialMaster.Infrastructure\MaterialMaster.Infrastructure.csproj" />
+    <ProjectReference Include="..\MaterialMaster.Services\MaterialMaster.Services.csproj" />
   </ItemGroup>
 
 </Project>

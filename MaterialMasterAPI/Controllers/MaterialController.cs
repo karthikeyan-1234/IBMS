@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MaterialMaster.Domain.Models;
+using MaterialMaster.Services.DTOs;
 
 namespace MaterialAPI.Controllers
 {
@@ -15,6 +16,8 @@ namespace MaterialAPI.Controllers
         {
             _materialService = materialService;
         }
+
+        #region Material
 
         //Get GetMaterialByNameAsync
         [HttpGet("{name}")]
@@ -30,7 +33,7 @@ namespace MaterialAPI.Controllers
 
         //Add new material
         [HttpPost("AddMaterialAsync")]
-        public async Task<ActionResult<Material>> AddMaterialAsync(Material material)
+        public async Task<ActionResult<Material>> AddMaterialAsync(NewMaterialDTO material)
         {
             await _materialService.AddMaterialAsync(material);
             return Ok();
@@ -58,6 +61,10 @@ namespace MaterialAPI.Controllers
             await _materialService.DeleteMaterialAsync(id);
             return Ok();
         }
+
+        #endregion
+
+        #region MaterialCategory
 
         //Add new material category
         [HttpPost("AddMaterialCategoryAsync")]
@@ -101,6 +108,8 @@ namespace MaterialAPI.Controllers
             }
             return materialCategory;
         }
+
+        #endregion
 
     }
 }

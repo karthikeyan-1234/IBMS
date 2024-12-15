@@ -1,10 +1,11 @@
 ﻿using MaterialMaster.Domain.Models;
+using MaterialMaster.Services.DTOs;
 
 namespace MaterialMaster.Services.Contracts
 {
     public interface IMaterialMasterService
     {
-        Task AddMaterialAsync(Material material);
+        Task AddMaterialAsync(NewMaterialDTO material);
         Task AddMaterialCategoryAsync(MaterialCategory materialCategory);
         Task DeleteMaterialAsync(int id);
         Task DeleteMaterialCategoryAsync(int id);

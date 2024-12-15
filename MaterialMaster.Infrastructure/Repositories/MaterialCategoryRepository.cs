@@ -1,4 +1,6 @@
-﻿using MaterialMaster.Domain.Contracts;
+﻿using Common.Infrastructure;
+
+using MaterialMaster.Domain.Contracts;
 using MaterialMaster.Domain.Models;
 using MaterialMaster.Infrastructure.Contexts;
 

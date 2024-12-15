@@ -1,6 +1,10 @@
 ﻿using MaterialMaster.Domain.Contracts;
 using MaterialMaster.Services.Contracts;
 using MaterialMaster.Domain.Models;
+using System.Text.Json;
+using MaterialMaster.Services.DTOs;
+using MaterialMaster.Domain;
+using Common.Domain;
 
 namespace MaterialMaster.Services
 {
@@ -9,12 +13,14 @@ namespace MaterialMaster.Services
         private readonly IMaterialRepository _materialRepository;
         private readonly IMaterialCategoryRepository _materialCategoryRepository;
         private readonly IReportRepository _reportRepository;
+        private readonly INotificationService _notificationService;
 
-        public MaterialMasterService(IMaterialRepository materialRepository, IReportRepository reportRepository, IMaterialCategoryRepository materialCategoryRepository)
+        public MaterialMasterService(IMaterialRepository materialRepository, IReportRepository reportRepository, IMaterialCategoryRepository materialCategoryRepository, INotificationService notificationService)
         {
             _materialRepository = materialRepository;
             _reportRepository = reportRepository;
             _materialCategoryRepository = materialCategoryRepository;
+            _notificationService = notificationService;
         }
 
         public async Task<Material?> GetMaterialByNameAsync(string name)
@@ -23,9 +29,16 @@ namespace MaterialMaster.Services
         }
 
         //Add new material
-        public async Task AddMaterialAsync(Material material)
+        public async Task AddMaterialAsync(NewMaterialDTO material)
         {
-            await _materialRepository.AddAsync(material);
+            Material newMaterial = new Material
+            {
+                Name = material.Name,
+                MaterialCategoryId = material.MaterialCategoryId,
+            };
+
+            var createdMaterial = await _materialRepository.AddAsync(newMaterial);
+            await _notificationService.SendNotification(material.Name, JsonSerializer.Serialize(createdMaterial),"new-material");
         }
 
         //Get All material details
@@ -51,6 +64,8 @@ namespace MaterialMaster.Services
         public async Task AddMaterialCategoryAsync(MaterialCategory materialCategory)
         {
             await _materialCategoryRepository.AddAsync(materialCategory);
+
+            await _notificationService.SendNotification(materialCategory.Name!, JsonSerializer.Serialize(materialCategory), "new-material-group");
         }
 
         public async Task UpdateMaterialCategoryAsync(MaterialCategory materialCategory)
@@ -73,7 +88,6 @@ namespace MaterialMaster.Services
         {
             return _materialCategoryRepository.GetAll().ToList();
         }
-
 
     }
 }

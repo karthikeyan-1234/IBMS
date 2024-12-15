@@ -1,4 +1,6 @@
-﻿using MaterialMaster.Domain.Models;
+﻿using Common.Domain;
+
+using MaterialMaster.Domain.Models;
 
 using System;
 using System.Collections.Generic;

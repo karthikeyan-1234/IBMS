@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MaterialMaster.Domain.Contracts;
-
+﻿using Common.Domain;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace MaterialMaster.Infrastructure.Repositories
+namespace Common.Infrastructure
 {
     public class SQLGenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class
