@@ -1,4 +1,6 @@
 ﻿
+using Common.Infrastructure;
+
 using Microsoft.EntityFrameworkCore;
 
 using Purchase.Domain.Contracts;

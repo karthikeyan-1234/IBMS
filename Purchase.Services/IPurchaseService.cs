@@ -11,7 +11,7 @@ namespace Purchase.Services
         Task<PurchaseDTO> GetPurchaseById(int id);
         Task UpdatePurchaseAsync(PurchaseDTO purchase);
 
-        Task<Material> AddMaterialAsync(Material material)
+        Task<Material> AddMaterialAsync(Material material);
         Task<MaterialCategory> AddMaterialCategoryAsync(MaterialCategory materialCategory);
     }
 }

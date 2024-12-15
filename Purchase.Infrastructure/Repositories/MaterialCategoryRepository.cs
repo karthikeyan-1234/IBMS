@@ -1,8 +1,10 @@
-﻿using MaterialMaster.Domain.Models;
+﻿using Common.Infrastructure;
+
 
 using Microsoft.EntityFrameworkCore;
 
 using Purchase.Domain.Contracts;
+using Purchase.Domain.Models;
 using Purchase.Infrastructure.Contexts;
 
 using System;

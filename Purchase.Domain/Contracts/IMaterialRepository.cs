@@ -1,4 +1,6 @@
 ﻿
+using Common.Domain;
+
 using Purchase.Domain.Contracts;
 using Purchase.Domain.Models;
 

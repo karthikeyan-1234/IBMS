@@ -1,5 +1,7 @@
 ﻿
 
+using Common.Domain;
+
 using Purchase.Domain.Models;
 
 using System;

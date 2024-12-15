@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MaterialMaster.Domain.Models;
+
+using Common.Infrastructure;
 
 using Microsoft.EntityFrameworkCore;
 
 using Purchase.Domain.Contracts;
+using Purchase.Domain.Models;
 using Purchase.Infrastructure.Contexts;
 
 namespace Purchase.Infrastructure.Repositories
