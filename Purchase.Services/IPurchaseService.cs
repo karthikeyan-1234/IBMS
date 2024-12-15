@@ -5,7 +5,7 @@ namespace Purchase.Services
 {
     public interface IPurchaseService
     {
-        Task AddPurchaseAsync(PurchaseDTO purchase);
+        Task AddPurchaseAsync(PurchaseRequestDTO purchase);
         Task DeletePurchaseAsync(int id);
         IEnumerable<PurchaseDTO> GetAllPurchases();
         Task<PurchaseDTO> GetPurchaseById(int id);

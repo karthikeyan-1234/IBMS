@@ -17,7 +17,7 @@ namespace Purchase.Services
             this.materialCategoryRepository = materialCategoryRepository;
         }
 
-        public async Task AddPurchaseAsync(PurchaseDTO purchase)
+        public async Task AddPurchaseAsync(PurchaseRequestDTO purchase)
         {
             Domain.Models.Purchase newPurchase = new Domain.Models.Purchase
             {

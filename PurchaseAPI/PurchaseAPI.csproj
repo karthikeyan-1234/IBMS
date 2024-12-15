@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Purchase.Domain\Purchase.Domain.csproj" />
+    <ProjectReference Include="..\Purchase.Infrastructure\Purchase.Infrastructure.csproj" />
+    <ProjectReference Include="..\Purchase.Services\Purchase.Services.csproj" />
   </ItemGroup>
 
 </Project>
