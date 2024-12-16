@@ -18,8 +18,9 @@ namespace MaterialMasterAPI.Dependencies
             collection.AddScoped<IMaterialRepository, MaterialRepository>();
             collection.AddScoped<IMaterialCategoryRepository, MaterialCategoryRepository>();
             collection.AddScoped<IReportRepository, ReportRepository>();
-            collection.AddScoped<INotificationService, NotificationService>();
+            collection.AddScoped<IBrokerService, KafkaService>();
             collection.AddScoped(typeof(IGenericRepository<>), typeof(SQLGenericRepository<>));
+            collection.AddScoped<INotificationService, SignalRService>();
         }
     }
 }

@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MaterialMaster.Domain\MaterialMaster.Domain.csproj" />
     <ProjectReference Include="..\MaterialMaster.Infrastructure\MaterialMaster.Infrastructure.csproj" />
     <ProjectReference Include="..\MaterialMaster.Services\MaterialMaster.Services.csproj" />

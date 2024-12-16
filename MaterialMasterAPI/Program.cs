@@ -5,6 +5,7 @@ using MaterialMaster.Services;
 using MaterialMaster.Services.Contracts;
 using MaterialAPI;
 using MaterialMasterAPI.Dependencies;
+using Common.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSignalR();
 
 //Resolve dependencies
 builder.Services.AddBusinessDependencies();
@@ -29,8 +32,18 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+app.UseRouting();
+
 app.UseAuthorization();
 
-app.MapControllers();
+
+app.UseEndpoints(static endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<ChatHub>("/chatHub");
+});
+
+
 
 app.Run();

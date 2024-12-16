@@ -7,16 +7,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace Common.Infrastructure
 {
-    public class NotificationService : INotificationService
+    public class KafkaService : IBrokerService
     {
         IConfiguration configuration;
 
-        public NotificationService(IConfiguration configuration)
+        public KafkaService(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
 
-        public async Task SendNotification(string key, string message,string topic)
+        public async Task PublishInfo(string key, string message,string topic)
         {
             var bootstrapServer = configuration.GetSection("Kafka:BootstrapServer").Value;
             var config = new ProducerConfig { BootstrapServers = bootstrapServer };

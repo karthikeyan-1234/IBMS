@@ -13,14 +13,16 @@ namespace MaterialMaster.Services
         private readonly IMaterialRepository _materialRepository;
         private readonly IMaterialCategoryRepository _materialCategoryRepository;
         private readonly IReportRepository _reportRepository;
-        private readonly INotificationService _notificationService;
+        private readonly IBrokerService _notificationService;
+        private readonly INotificationService _signalService;
 
-        public MaterialMasterService(IMaterialRepository materialRepository, IReportRepository reportRepository, IMaterialCategoryRepository materialCategoryRepository, INotificationService notificationService)
+        public MaterialMasterService(IMaterialRepository materialRepository, IReportRepository reportRepository, IMaterialCategoryRepository materialCategoryRepository, IBrokerService notificationService, INotificationService signalService)
         {
             _materialRepository = materialRepository;
             _reportRepository = reportRepository;
             _materialCategoryRepository = materialCategoryRepository;
             _notificationService = notificationService;
+            _signalService = signalService;
         }
 
         public async Task<Material?> GetMaterialByNameAsync(string name)
@@ -38,7 +40,8 @@ namespace MaterialMaster.Services
             };
 
             var createdMaterial = await _materialRepository.AddAsync(newMaterial);
-            await _notificationService.SendNotification(material.Name, JsonSerializer.Serialize(createdMaterial),"new-material");
+            await _notificationService.PublishInfo(material.Name, JsonSerializer.Serialize(createdMaterial),"new-material");
+            await _signalService.SendMessageAsync("NewMaterialCreated", JsonSerializer.Serialize(createdMaterial));
         }
 
         //Get All material details
@@ -65,7 +68,7 @@ namespace MaterialMaster.Services
         {
             await _materialCategoryRepository.AddAsync(materialCategory);
 
-            await _notificationService.SendNotification(materialCategory.Name!, JsonSerializer.Serialize(materialCategory), "new-material-group");
+            await _notificationService.PublishInfo(materialCategory.Name!, JsonSerializer.Serialize(materialCategory), "new-material-group");
         }
 
         public async Task UpdateMaterialCategoryAsync(MaterialCategory materialCategory)

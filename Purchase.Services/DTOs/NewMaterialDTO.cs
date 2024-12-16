@@ -8,7 +8,7 @@ namespace MaterialMaster.Services.DTOs
 {
     public class NewMaterialDTO
     {
-        public string Name { get; set; }
+        public string ?Name { get; set; }
         public int MaterialCategoryId { get; set; }
 
     }

@@ -14,4 +14,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SalesProject.Domain\SalesProject.Domain.csproj" />
+    <ProjectReference Include="..\SalesProject.Infrastructure\SalesProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\SalesProject.Services\SalesProject.Services.csproj" />
+  </ItemGroup>
+
 </Project>
